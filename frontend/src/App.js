@@ -23,7 +23,7 @@ function App() {
                 <IconContext.Provider value={{ style: { fontSize: '30px', color: "rgb(0, 123, 255)" } }}>
                   <div className="flex flex-wrap">
                     <AiFillBell />
-                    <NavDropdown.Item href="#action/3.1">Notification Preferences</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.1"> Preferences</NavDropdown.Item>
                   </div>
                 </IconContext.Provider>
               </div>
