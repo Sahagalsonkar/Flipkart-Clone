@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 import { Container } from 'react-bootstrap';
 import { IconContext } from "react-icons";
 import { AiFillBell } from "react-icons/ai"
-
+import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
@@ -40,6 +40,7 @@ function App() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <Footer />
     </div>
   );
 }
