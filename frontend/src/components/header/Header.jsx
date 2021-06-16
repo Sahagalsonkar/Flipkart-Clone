@@ -2,7 +2,8 @@ import React from 'react'
 import { AppBar, Toolbar, makeStyles, Typography, Button, Box, withStyles, } from '@material-ui/core';
 import SearchBar from '../SearchBar';
 import { ShoppingCart } from '@material-ui/icons';
-import Badge from './Badge'
+import Badge from './Badge';
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     header: {
         background: "#2874f0",
@@ -18,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
     },
     logoText: {
         fontStyle: "italic",
-        fontSize: 10
+        fontSize: 10,
+        textDecoration: "none",
+        color: "white"
     },
     container: {
         display: "flex"
@@ -34,13 +37,21 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 1,
         marginRight: 30,
         textTransform: "unset",
+        boxShadow: "none",
+        textDecoration: "none"
     },
     subheader: {
-        margin: "0 5% 0 auto",
+        margin: "0 7% 0 auto",
         display: "flex",
         '& > *': {
-            marginRight: 50
+            marginRight: 50,
+            alignItem: "center",
+            color: "white",
+            textDecoration: "none"
         }
+    },
+    badgeIcon: {
+        height: 5
     }
 
 }));
@@ -58,23 +69,23 @@ export default function Header() {
     return (
         <AppBar className={classes.header}>
             <ToolBar>
-                <Box className={classes.component}>
+                <Link to="/" className={classes.component}>
                     <img src={logoURL} className={classes.logo} />
                     <Box className={classes.container}>
                         <Typography className={classes.logoText} >Explore <Box component="span" style={{ color: "#ffe500" }} > Plus</Box> </Typography>
                         <img src={subURL} className={classes.subLogo} />
                     </Box>
-                </Box>
+                </Link>
                 <SearchBar />
                 <Box className={classes.subheader}>
-
-                    <Button variant="contained" className={classes.login} >Login</Button>
-                    <Typography>more</Typography>
-                    <Box style={{ display: "flex" }} >
-                        <Badge/>
-                        
+                    <Link to="/login">
+                        <Button variant="contained" className={classes.login} >Login</Button>
+                    </Link>
+                    <Link><Typography style={{ marginTop: '5px' }}>more</Typography></Link>
+                    <Link to="/cart" style={{ display: "flex", marginTop: '5px' }} >
+                        <Badge className={classes.badgeIcon} />
                         <Typography>Cart</Typography>
-                    </Box>
+                    </Link>
                 </Box>
             </ToolBar>
         </AppBar>

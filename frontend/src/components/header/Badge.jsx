@@ -6,19 +6,18 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
-    left: -4,
+    left: -7,
     right:15,
     top:-5,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px"
+    padding: "0 4px",
   }
 }))(Badge);
 
 export default function CustomizedBadges() {
   return (
-    <IconButton aria-label="cart">
-      <StyledBadge badgeContent={4} color="secondary">
-        <ShoppingCartIcon />
+    <IconButton aria-label="cart" style={{height:"15px", width:"15px", marginTop:5}} >
+      <StyledBadge badgeContent={4} color="error">
+        <ShoppingCartIcon style={{color:"white", marginRight:"5px"}} />
       </StyledBadge>
     </IconButton>
   );
