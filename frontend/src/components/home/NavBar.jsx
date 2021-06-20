@@ -15,19 +15,11 @@ const useStyle= makeStyles({
     },
     image:{
         width:'64px'
-
     },
     text :{
 fontSize:14,
 fontWeight:400
     }
-
-
-
-    
-
-
-
 })
 
 
