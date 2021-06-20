@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppBar, Toolbar, makeStyles, Typography, Button, Box, withStyles, } from '@material-ui/core';
 import SearchBar from '../SearchBar';
-import { ShoppingCart } from '@material-ui/icons';
+//import { ShoppingCart } from '@material-ui/icons';
 import Badge from './Badge';
 import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
