@@ -2,7 +2,7 @@ import  express  from 'express';
 import mongoose from 'mongoose';
 
 
-import connection from './db/db.js';
+import connection from "./db/db.js";
 import dotenv from 'dotenv';
 import defaultData from './default.js';
 

@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 const connection = (userName, password) => {
 
-    const URL = `mongodb+srv://${userName}:${password}@ecommerce.az8em.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+    const URL = `mongodb+srv://${userName}:${password}@flip.k0fpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 
     mongoose.connect(URL,{useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex:true, useFindAndModify:false})
     .then(

@@ -1,7 +1,9 @@
 import React from 'react'
+import { useState } from 'react';
 import { AppBar, Toolbar, makeStyles, Typography, Button, Box, withStyles, } from '@material-ui/core';
 import SearchBar from '../SearchBar';
 //import { ShoppingCart } from '@material-ui/icons';
+import LoginDialog from '../login/Login';
 import Badge from './Badge';
 import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
@@ -64,6 +66,10 @@ const ToolBar = withStyles({
 
 export default function Header() {
     const classes = useStyles();
+    const [open,setOpen]=useState(false);
+    const openLoginDialog=()=>{
+        setOpen(true);
+    }
     const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
     const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
     return (
@@ -79,13 +85,14 @@ export default function Header() {
                 <SearchBar />
                 <Box className={classes.subheader}>
                     <Link to="/login">
-                        <Button variant="contained" className={classes.login} >Login</Button>
+                        <Button variant="contained" onClick={()=>openLoginDialog()} className={classes.login} >Login</Button>
                     </Link>
                     <Link><Typography style={{ marginTop: '5px' }}>more</Typography></Link>
                     <Link to="/cart" style={{ display: "flex", marginTop: '5px' }} >
                         <Badge className={classes.badgeIcon} />
                         <Typography>Cart</Typography>
                     </Link>
+                    <LoginDialog open={open} setOpen={setOpen}/>
                 </Box>
             </ToolBar>
         </AppBar>
