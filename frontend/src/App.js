@@ -6,23 +6,20 @@ import Cart from './components/cart/Cart'
 import Home from './components/home/Home';
 import NavBar from './components/home/NavBar';
 import Banner from './components/home/Banner';
+import { TemplateProvider } from './templates/TemplateProvider';
 function App() {
   return (
+    <TemplateProvider>
     <Router>
       
         <Header />
-        <Switch>
-
-          <Route exact path="/" component={Home} />
-          <Route exact path="/cart" component={Cart} />
-          
-          
-        </Switch>
-
        
-     
+        <NavBar/>
+        <Banner/>
+      
       
     </Router>
+    </TemplateProvider>
     
         
   );
