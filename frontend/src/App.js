@@ -13,9 +13,7 @@ function App() {
     <Router>
       
         <Header />
-       
-        <NavBar/>
-        <Banner/>
+        <Home/>
       
       
     </Router>
