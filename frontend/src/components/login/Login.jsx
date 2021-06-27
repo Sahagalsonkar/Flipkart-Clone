@@ -82,6 +82,7 @@ const Login = ({ open, setOpen }) => {
     const [ account, setAccount ] = useState(initialValue.login);
     const handleClose = () => {
         setOpen(false);
+        setAccount(initialValue.login)
     }
 
     const toggleAccount = () => {
