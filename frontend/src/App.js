@@ -7,16 +7,20 @@ import Home from './components/home/Home';
 import NavBar from './components/home/NavBar';
 import Banner from './components/home/Banner';
 import { TemplateProvider } from './templates/TemplateProvider';
+import ContextProvider from './context/ContextProvider';
 function App() {
   return (
     <TemplateProvider>
+    <ContextProvider>
     <Router>
       
         <Header />
         <Home/>
       
       
+
     </Router>
+    </ContextProvider>
     </TemplateProvider>
     
         
