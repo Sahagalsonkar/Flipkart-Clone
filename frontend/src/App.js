@@ -13,28 +13,28 @@ function App() {
   return (
     <TemplateProvider>
 
-    <ContextProvider>
-    <Router>
+      <ContextProvider>
+        {/* <Router>
       
         <Header />
         <Home/>
       
       
 
-    </Router>
-    </ContextProvider>
+    </Router> */}
 
-      <Router>
+        <Router>
 
-        <Header />
-        <Box style={{marginTop:"55px"}}>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/Cart' component={Cart} />
-          </Switch>
-        </Box>
+          <Header />
+          <Box style={{ marginTop: "55px" }}>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/Cart' component={Cart} />
+            </Switch>
+          </Box>
 
-      </Router>
+        </Router>
+      </ContextProvider>
 
     </TemplateProvider>
 

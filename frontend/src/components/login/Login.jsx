@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Dialog, DialogContent, makeStyles, Box, Typography, Button } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
-import { authenticateSignup } from '../../service/api';
+import { authenticateSignup, authenticateLogin } from '../../service/api';
 import { async } from 'q';
 import { set } from 'mongoose';
 const useStyle = makeStyles({
@@ -86,10 +86,18 @@ const signupInitialValues={
     phone:''
 }
 
+const loginInitialValues = {
+    email:'',
+    password:''
+}
+
 const Login = ({ open, setOpen,setAccount }) => {
     const classes = useStyle();
     const [ account, toggleAccount ] = useState(initialValue.login);
-    const [signup,setSignup]=useState(signupInitialValues);
+    const [signup, setSignup] = useState(signupInitialValues);
+    const [login, setLogin] = useState(loginInitialValues);
+
+
     const handleClose = () => {
         setOpen(false);
         toggleAccount(initialValue.login)
@@ -106,6 +114,11 @@ const Login = ({ open, setOpen,setAccount }) => {
     }
     const onInputChange=(e)=>{
         setSignup({ ...signup,[e.target.name]:e.target.value})
+        console.log(signup);
+    }
+    const onValueChange = (e) => {
+        login({...login, [e.target.name]:e.target.value});
+        console.log(login);
     }
 
     return (
@@ -120,8 +133,8 @@ const Login = ({ open, setOpen,setAccount }) => {
                         account.view === 'login' ?
 
                             <Box className={classes.login}>
-                                <TextField name='username' label='Enter Email/Mobile Number' />
-                                <TextField name='password' label='Enter Password' />
+                                <TextField onChange={(e)=>onValueChange(e)} name='username' label='Enter Email/Mobile Number' />
+                                <TextField onChange={(e)=>onValueChange(e)} name='password' label='Enter Password' />
                                 <Typography className={classes.text}>By continuing, you agree to flipkart's <span style={{ color: "#2878f0", cursor: "pointer" }} className={classes.text} >Terms of use</span> and <span style={{ color: "#2878f0", cursor: "pointer" }} className={classes.text}> Privacy Policy</span>. </Typography>
                                 <Button variant="contained" className={classes.loginBtn} >Login</Button>
                                 <Typography className={classes.text} style={{ textAlign: "center" }}>OR</Typography>

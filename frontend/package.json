@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
@@ -9,6 +10,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "components": "^0.1.0",
     "css-loader": "^4.3.0",
@@ -20,6 +22,7 @@
     "react-icons": "^4.2.0",
     "react-material-ui-carousel": "^2.2.6",
     "react-multi-carousel": "^2.6.3",
+    "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "style": "^0.0.3",

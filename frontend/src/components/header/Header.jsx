@@ -1,12 +1,14 @@
-import React from 'react'
-import { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { AppBar, Toolbar, makeStyles, Typography, Button, Box, withStyles, } from '@material-ui/core';
 import SearchBar from '../SearchBar';
 //import { ShoppingCart } from '@material-ui/icons';
 import LoginDialog from '../login/Login';
 import Badge from './Badge';
 import { Link } from 'react-router-dom';
-import {LoginContext}  from '../../context/ContextProvider';
+import {LoginContext } from '../../context/ContextProvider';
+import Profile from './Profile';
+
+
 const useStyles = makeStyles((theme) => ({
     header: {
         background: "#2874f0",
@@ -68,7 +70,7 @@ const ToolBar = withStyles({
 export default function Header() {
     const classes = useStyles();
     const [open,setOpen]=useState(false);
-    const {account, setAccount } = useContext(LoginContext);
+    const {account, setAccount} = useContext(LoginContext);
     const openLoginDialog=()=>{
         setOpen(true);
     }
@@ -87,7 +89,7 @@ export default function Header() {
                 <SearchBar />
                 <Box className={classes.subheader}>
                 {
-                    account ? <Typography>{account}</Typography> : 
+                    account ? <Profile account={account} setAccount={setAccount} /> : 
                     <Link to="/login">
                         <Button variant="contained" onClick={()=>openLoginDialog()} className={classes.login} >Login</Button>
                     </Link>
@@ -97,7 +99,7 @@ export default function Header() {
                         <Badge className={classes.badgeIcon} />
                         <Typography>Cart</Typography>
                     </Link>
-                    <LoginDialog open={open} setOpen={setOpen} setAcount={setAccount}/>
+                    <LoginDialog open={open} setOpen={setOpen} setAccount={setAccount}/>
                 </Box>
             </ToolBar>
         </AppBar>
