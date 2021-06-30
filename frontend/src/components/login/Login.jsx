@@ -97,7 +97,6 @@ const Login = ({ open, setOpen,setAccount }) => {
     const [signup, setSignup] = useState(signupInitialValues);
     const [login, setLogin] = useState(loginInitialValues);
 
-
     const handleClose = () => {
         setOpen(false);
         toggleAccount(initialValue.login)
@@ -108,7 +107,7 @@ const Login = ({ open, setOpen,setAccount }) => {
     }
     const signupUser=async()=>{
      let response= await authenticateSignup(signup);
-     if(!response) return;
+     if(!response) return console.log("response not found");
      handleClose();
      setAccount(signup.username)
     }
@@ -117,8 +116,15 @@ const Login = ({ open, setOpen,setAccount }) => {
         console.log(signup);
     }
     const onValueChange = (e) => {
-        login({...login, [e.target.name]:e.target.value});
+        setLogin({...login, [e.target.name]:e.target.value});
         console.log(login);
+    }
+
+    const loginUser = async() => {
+        let response = await authenticateLogin(login);
+        if(!response) return console.log("response not found");
+        handleClose();
+        setAccount(login.username)
     }
 
     return (
@@ -133,17 +139,17 @@ const Login = ({ open, setOpen,setAccount }) => {
                         account.view === 'login' ?
 
                             <Box className={classes.login}>
-                                <TextField onChange={(e)=>onValueChange(e)} name='username' label='Enter Email/Mobile Number' />
+                                <TextField onChange={(e)=>onValueChange(e)} name='email' label='Enter Email/Mobile Number' />
                                 <TextField onChange={(e)=>onValueChange(e)} name='password' label='Enter Password' />
                                 <Typography className={classes.text}>By continuing, you agree to flipkart's <span style={{ color: "#2878f0", cursor: "pointer" }} className={classes.text} >Terms of use</span> and <span style={{ color: "#2878f0", cursor: "pointer" }} className={classes.text}> Privacy Policy</span>. </Typography>
-                                <Button variant="contained" className={classes.loginBtn} >Login</Button>
+                                <Button onClick={()=>loginUser()} variant="contained" className={classes.loginBtn} >Login</Button>
                                 <Typography className={classes.text} style={{ textAlign: "center" }}>OR</Typography>
                                 <Button variant="contained" className={classes.requestBtn} >Request OTP</Button>
                                 <Typography onClick={()=>toggleUserAccount()} className={classes.createText}  >New To Flipkart? Create an Account</Typography>
                             </Box> :
                             <Box className={classes.login}>
-                                <TextField onChange={(e)=>onInputChange(e)} name='FirstName' label='Enter firstName' />
-                                <TextField onChange={(e)=>onInputChange(e)} name='lastName' label='Enter lastName' />
+                                <TextField onChange={(e)=>onInputChange(e)} name='firstname' label='Enter firstName' />
+                                <TextField onChange={(e)=>onInputChange(e)} name='lastname' label='Enter lastName' />
                                 <TextField onChange={(e)=>onInputChange(e)} name='username' label='Enter username' />
                                 <TextField onChange={(e)=>onInputChange(e)} name='email' label='Enter email' />
                                 <TextField onChange={(e)=>onInputChange(e)} name='password' label='Enter Password' />
