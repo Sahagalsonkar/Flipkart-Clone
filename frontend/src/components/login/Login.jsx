@@ -87,7 +87,7 @@ const signupInitialValues={
 }
 
 const loginInitialValues = {
-    email:'',
+    username:'',
     password:''
 }
 
@@ -113,7 +113,7 @@ const Login = ({ open, setOpen,setAccount }) => {
     }
     const onInputChange=(e)=>{
         setSignup({ ...signup,[e.target.name]:e.target.value})
-        console.log(signup);
+        // console.log(signup);
     }
     const onValueChange = (e) => {
         setLogin({...login, [e.target.name]:e.target.value});
@@ -139,7 +139,7 @@ const Login = ({ open, setOpen,setAccount }) => {
                         account.view === 'login' ?
 
                             <Box className={classes.login}>
-                                <TextField onChange={(e)=>onValueChange(e)} name='email' label='Enter Email/Mobile Number' />
+                                <TextField onChange={(e)=>onValueChange(e)} name='username' label='Enter UserName' />
                                 <TextField onChange={(e)=>onValueChange(e)} name='password' label='Enter Password' />
                                 <Typography className={classes.text}>By continuing, you agree to flipkart's <span style={{ color: "#2878f0", cursor: "pointer" }} className={classes.text} >Terms of use</span> and <span style={{ color: "#2878f0", cursor: "pointer" }} className={classes.text}> Privacy Policy</span>. </Typography>
                                 <Button onClick={()=>loginUser()} variant="contained" className={classes.loginBtn} >Login</Button>
