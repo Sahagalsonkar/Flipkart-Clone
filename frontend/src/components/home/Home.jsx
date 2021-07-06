@@ -1,10 +1,13 @@
 import { Box, makeStyles } from '@material-ui/core';
-
+import {useEffect} from 'react';
 
 import NavBar from './NavBar';
 import Banner from './Banner';
 import Slide from './Slide';
 import Midsection from './Midsection';
+// import { products } from '../../constants/data';
+import {useSelector, useDispatch } from 'react-redux'
+import {getProducts as listProducts} from '../../redux/actions/productAction'
 
 const useStyle = makeStyles(theme=>({
 
@@ -35,6 +38,17 @@ const useStyle = makeStyles(theme=>({
 
 const Home = () => {
     const classes = useStyle();
+
+    const getProducts = useSelector(state => state.getProducts);
+
+    const {products} = getProducts;
+
+    const dispatch = useDispatch();
+
+    useEffect(() =>{
+        dispatch(listProducts())
+    },[dispatch]);
+
     return (
         <div>
             <NavBar />
@@ -42,18 +56,18 @@ const Home = () => {
                 <Banner />
                 <Box style={{display:"flex"}}>
                     <Box className={classes.leftwrapper}>
-                        <Slide timer={true} title="Deals of the day" />
+                        <Slide timer={true} title="Deals of the day" products={products} />
                     </Box>
                     <Box className={classes.rightwrapper}>
                         <img src="https://rukminim1.flixcart.com/flap/464/708/image/633789f7def60050.jpg?q=70" style={{width:250}} />
                     </Box>
                 </Box>
                 <Midsection/>
-                <Slide timer={false} title="Best Price On Fashion" />
-                <Slide timer={false} title="Furniture Bestsellers" />
-                <Slide timer={false} title="Top Offers On" />
-                <Slide timer={false} title="Health Care Essentials" />
-                <Slide timer={false} title="Best of Electronics" />
+                <Slide timer={false} title="Best Price On Fashion" products={products} />
+                <Slide timer={false} title="Furniture Bestsellers" products={products} />
+                <Slide timer={false} title="Top Offers On"  products={products}/>
+                <Slide timer={false} title="Health Care Essentials" products={products} />
+                <Slide timer={false} title="Best of Electronics" products={products} />
             </Box>
         </div>
     )
