@@ -39,10 +39,8 @@ const useStyle = makeStyles(theme=>({
 const Home = () => {
     const classes = useStyle();
 
-    const getProducts = useSelector(state => state.getProducts);
-
-    const {products} = getProducts;
-
+    const {products} = useSelector(state => state.getProducts);
+    console.log(products);
     const dispatch = useDispatch();
 
     useEffect(() =>{

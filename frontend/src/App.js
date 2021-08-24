@@ -9,6 +9,7 @@ import NavBar from './components/home/NavBar';
 import Banner from './components/home/Banner';
 import { TemplateProvider } from './templates/TemplateProvider';
 import ContextProvider from './context/ContextProvider';
+import DetailView from './components/itemDetail/DetailView'
 function App() {
   return (
     <TemplateProvider>
@@ -30,6 +31,7 @@ function App() {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/Cart' component={Cart} />
+              <Route exact path='/product/:id' component={DetailView} />
             </Switch>
           </Box>
 
