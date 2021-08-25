@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Dialog, DialogContent, makeStyles, Box, Typography, Button } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
 import { authenticateSignup, authenticateLogin } from '../../service/api';
@@ -59,6 +59,11 @@ const useStyle = makeStyles({
         fontWeight: "600",
         cursor: "pointer"
     },
+    error:{
+        fontSize:10,
+        color:"#ff6161",
+        marginTop:0,
+    },
     signupBtn:{
         background:"#fb641b",
         color:"#ffffff"
@@ -96,6 +101,11 @@ const Login = ({ open, setOpen,setAccount }) => {
     const [ account, toggleAccount ] = useState(initialValue.login);
     const [signup, setSignup] = useState(signupInitialValues);
     const [login, setLogin] = useState(loginInitialValues);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        setError(false);
+    }, [login])
 
     const handleClose = () => {
         setOpen(false);
@@ -122,9 +132,13 @@ const Login = ({ open, setOpen,setAccount }) => {
 
     const loginUser = async() => {
         let response = await authenticateLogin(login);
-        if(!response) return console.log("response not found");
-        handleClose();
-        setAccount(login.username)
+        if(!response) 
+            setError(true);
+        else {
+            setError(false);
+            handleClose();
+            setAccount(login.username);
+        }
     }
 
     return (
@@ -141,6 +155,7 @@ const Login = ({ open, setOpen,setAccount }) => {
                             <Box className={classes.login}>
                                 <TextField onChange={(e)=>onValueChange(e)} name='username' label='Enter UserName' />
                                 <TextField onChange={(e)=>onValueChange(e)} name='password' label='Enter Password' />
+                                {error && <Typography className={classes.error} >Invalid username or password</Typography>}
                                 <Typography className={classes.text}>By continuing, you agree to flipkart's <span style={{ color: "#2878f0", cursor: "pointer" }} className={classes.text} >Terms of use</span> and <span style={{ color: "#2878f0", cursor: "pointer" }} className={classes.text}> Privacy Policy</span>. </Typography>
                                 <Button onClick={()=>loginUser()} variant="contained" className={classes.loginBtn} >Login</Button>
                                 <Typography className={classes.text} style={{ textAlign: "center" }}>OR</Typography>

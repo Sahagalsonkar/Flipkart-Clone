@@ -90,7 +90,7 @@ export default function Header() {
                 <Box className={classes.subheader}>
                 {
                     account ? <Profile account={account} setAccount={setAccount} /> : 
-                    <Link to="/login">
+                    <Link>
                         <Button variant="contained" onClick={()=>openLoginDialog()} className={classes.login} >Login</Button>
                     </Link>
                 }

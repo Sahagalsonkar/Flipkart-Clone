@@ -28,12 +28,13 @@ const Profile = ({ account, setAccount }) => {
     const logout = () => {
         setAccount('')
     }
-
     return (
         <>
-            <Link>
-                <Typography onClick={handleClick} style={{ marginTop: 4 }}>{account}</Typography>
-            </Link>
+            {
+                <Link onClick={handleClick} >
+                    <Typography onClick={handleClick} style={{ marginTop: 4 }}>{account}</Typography>
+                </Link>
+            }
             <Menu
                 anchorEl={open}
                 open={Boolean(open)}
