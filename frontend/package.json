@@ -2,7 +2,8 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy":  "http://localhost:5000" ,
+    
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
@@ -12,8 +13,10 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "clsx": "^1.1.1",
     "components": "^0.1.0",
     "css-loader": "^4.3.0",
+    "http-proxy-middleware": "^2.0.1",
     "mongoose": "^5.12.15",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",

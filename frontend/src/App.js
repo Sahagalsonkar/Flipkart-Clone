@@ -9,7 +9,7 @@ import NavBar from './components/home/NavBar';
 import Banner from './components/home/Banner';
 import { TemplateProvider } from './templates/TemplateProvider';
 import ContextProvider from './context/ContextProvider';
-import DetailView from './components/itemDetail/DetailView'
+import DetailView from './components/ItemDetails/DetailView'
 function App() {
   return (
     <TemplateProvider>
