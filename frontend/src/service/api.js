@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000';
+const url = 'http://localhost:9000';
 
 export const authenticateLogin = async (user) => {
     try {
@@ -18,21 +18,21 @@ export const authenticateSignup = async (user) => {
     }
 }
 
-export const getProductById = async (id) => {
-    try {
-        return await axios.get(`${url}/product/${id}`);
-    } catch (error) {
-        console.log('Error while getting product by id response', error);
-    }
-}
+// export const getProductById = async (id) => {
+//     try {
+//         return await axios.get(`${url}/product/${id}`);
+//     } catch (error) {
+//         console.log('Error while getting product by id response', error);
+//     }
+// }
 
-export  const payUsingPaytm = async (data) => {
-    try {
-        console.log('payment api');
-        let response = await axios.post(`${url}/payment`, data);
-        console.log(response.data);
-        return response.data;
-    } catch (error) {
-        console.log('error', error);
-    }
-}
+// export  const payUsingPaytm = async (data) => {
+//     try {
+//         console.log('payment api');
+//         let response = await axios.post(`${url}/payment`, data);
+//         console.log(response.data);
+//         return response.data;
+//     } catch (error) {
+//         console.log('error', error);
+//     }
+// }

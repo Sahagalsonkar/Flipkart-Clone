@@ -12,7 +12,7 @@ export const getProducts = async(req, res ) => {
 
 export const getProductById = async(req, res) => {
     try {
-        const product = await Products.find({'id': req.params.id});
+        const product = await Products.findOne({'id': req.params.id});
         res.json(product);
     } catch (error) {
         console.log('error: ', error.message)
