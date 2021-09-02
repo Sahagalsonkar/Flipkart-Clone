@@ -41,12 +41,12 @@ const useStyle = makeStyles(theme => ({
 
 const ActionItem = ({ products }) => {
     const classes = useStyle();
-    // const history = useHistory();
+    const history = useHistory();
     // const { account } = useContext(LoginContext);
     // const { id, price, detailUrl, title } = product;
         
     // const [quantity, setQuantity] = useState(1);
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const buyNow = async () => {
         // let response = await payUsingPaytm({ amount: 500, email: 'codeforinterview01@gmail.com'});
@@ -58,14 +58,14 @@ const ActionItem = ({ products }) => {
     }
 
     const addItemToCart = () => {
-        // dispatch(addToCart(id, quantity));
-        // history.push('/cart');
+        dispatch(addToCart(products.id));
+        history.push('/cart');
     }
 
     return (
         <Box className={classes.leftContainer}>
             <img src={products.detailUrl} className={classes.productImage} /><br />
-            <Button onClick={() => addItemToCart()} className={clsx(classes.button, classes.addToCart)} style={{marginRight: 10}} variant="contained"><Cart />Add to Cart</Button>
+            <Button onClick={()=>addItemToCart()} className={clsx(classes.button, classes.addToCart)} style={{marginRight: 10}} variant="contained"><Cart />Add to Cart</Button>
             <Button onClick={() => buyNow()} className={clsx(classes.button, classes.buyNow)} variant="contained"><Flash /> Buy Now</Button>
         </Box>
     )
