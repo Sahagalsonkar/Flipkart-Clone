@@ -3,9 +3,10 @@ import {Box, Typography, makeStyles} from '@material-ui/core';
 import {useState, useEffect} from 'react';
 const useStyles = makeStyles({
     component:{
-        width:"30%",
+        // width:"30%",
         background:"#fff",
-        marginLeft:15,
+        marginTop:'15px'
+        // marginLeft:15,
         // height:'47px'
     },
     header:{
