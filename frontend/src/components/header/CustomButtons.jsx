@@ -24,7 +24,7 @@ const useStyle = makeStyles(theme => ({
             fontSize: 12,
             alignItems: 'center',
             [theme.breakpoints.down('sm')]: {
-                color: '#2874f0',
+                color: '#FDB44E',
                 alignItems: 'center',
                 display: 'flex',
                 flexDirection: 'column',
@@ -36,8 +36,8 @@ const useStyle = makeStyles(theme => ({
         }   
     },
     login: {
-        color: '#2874f0',
-        background: '#FFFFFF',
+        color: '#FF0000',
+        background: '#FEE68E',
         textTransform: 'none',
         fontWeight: 600,
         borderRadius: 2,
@@ -45,7 +45,7 @@ const useStyle = makeStyles(theme => ({
         height: 32,
         boxShadow: 'none',
         [theme.breakpoints.down('sm')]: {
-            background: '#2874f0',
+            background: '#FDB44E',
             color: '#FFFFFF'
         }   
     }

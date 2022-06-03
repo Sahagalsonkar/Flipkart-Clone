@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         padding: 6,
         height: '100%',
         display: 'flex',
-        color:"#2874f0"
+        color:"#FDB44E"
     },
     inputRoot: {
         color: 'inherit',

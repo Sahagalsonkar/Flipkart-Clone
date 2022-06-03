@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const useStyle = makeStyles(theme => ({
     header: {
-        background: '#2874f0',
+        background: '#FEE68E',
         height: 55
     },
     component: {
@@ -56,8 +56,8 @@ const ToolBar = withStyles({
 
 const Header = () => {
     const classes = useStyle();
-    const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
-    const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
+    const logoURL = 'https://craftindika.com/wp-content/uploads/2021/12/eshop-logo-full.png';
+    //const subURL = 'https://w7.pngwing.com/pngs/179/426/png-transparent-nintendo-switch-online-shopping-nintendo-eshop-etsy-logo-text-photography-service.png';
 
     const [open, setOpen] = useState(false);
 
@@ -98,8 +98,7 @@ const Header = () => {
                 <Link to='/' className={classes.component}>
                     <img src={logoURL} className={classes.logo} />
                     <Box component="span" className={classes.container}>
-                        <Typography className = {classes.subHeading}>Explore <Box component="span" style={{color:'#FFE500'}}>Plus</Box></Typography>
-                        <img src={subURL} className={classes.subURL} />
+                        
                     </Box>
                 </Link>
                 <SearchBar />
